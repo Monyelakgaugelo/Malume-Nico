@@ -189,7 +189,7 @@ h1, h2, h3 { font-family: 'Anton', Impact, sans-serif; letter-spacing: .5px; lin
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  aspect-ratio: 16/9;   /* force 16:9 ratio */
+  aspect-ratio: 1/1;   /* force 1:1 ratio */
   border-radius: var(--radius);
   overflow: hidden;
   background: var(--surface);

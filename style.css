@@ -1,3 +1,60 @@
+
+/* ---------- Mobile adjustments ---------- */
+@media (max-width: 720px) {
+  /* Slideshow: make it full width on phones */
+  .slideshow {
+    max-width: 100%;
+    border-radius: 0;   /* avoid clipping on small screens */
+  }
+
+  .slide img {
+    object-fit: contain; /* show full image without cropping */
+    background-color: #000; /* fill empty space neatly */
+  }
+
+  /* Hero section: reduce padding and font sizes */
+  .hero {
+    padding: 80px 16px 40px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 8vw, 64px);
+  }
+  .lead {
+    font-size: 16px;
+    max-width: 90%;
+  }
+
+  /* Navigation: shrink padding and logo */
+  .nav {
+    padding: 10px 16px;
+  }
+  .nav-brand img {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Section spacing: tighter on mobile */
+  .section {
+    padding: 60px 16px;
+  }
+  .section-title {
+    font-size: clamp(28px, 6vw, 48px);
+  }
+  .section-sub {
+    font-size: 15px;
+  }
+
+  /* Menu cards: adjust grid for small screens */
+  .menu-grid {
+    grid-template-columns: 1fr; /* single column */
+  }
+  .menu-card img {
+    aspect-ratio: 16/9; /* widescreen for consistency */
+    object-fit: cover;
+  }
+}
+
+
 /* ---------- Brand tokens ---------- */
 :root {
   --bg: #0f120d;
@@ -81,7 +138,24 @@ h1, h2, h3 { font-family: 'Anton', Impact, sans-serif; letter-spacing: .5px; lin
 .nav nav { display: flex; gap: 26px; }
 .nav nav a { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); transition: color .2s; }
 .nav nav a:hover { color: var(--lime); }
-@media (max-width: 720px) { .nav nav { display: none; } }
+@media (max-width: 720px) {
+  .nav nav {
+    display: flex;          /* keep showing links */
+    flex-direction: row;    /* stay side by side */
+    flex-wrap: wrap;        /* allow wrapping if too many */
+    gap: 12px;              /* tighter spacing for small screens */
+    background: rgba(15,18,13,.95);
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    padding: 12px;
+    justify-content: center; /* center them neatly */
+  }
+  .nav nav a {
+    font-size: 14px;
+    color: var(--text);
+  }
+}
+
 
 /* ---------- Buttons ---------- */
 .btn {
@@ -426,6 +500,15 @@ h1, h2, h3 { font-family: 'Anton', Impact, sans-serif; letter-spacing: .5px; lin
   font-size: 28px;
   color: var(--lime);
   letter-spacing: 2px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 28px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 14px;
 }
 
 /* ---------- Footer ---------- */
